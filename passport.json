@@ -1,0 +1,45 @@
+{
+  "$schema": "https://agentpassport.org/v1/schema.json",
+  "passportVersion": "1.0.0",
+  "agentId": "did:agent:eth:0x302a3005...c51423",
+  "metadata": {
+    "name": "Agent-Alpha",
+    "baseModel": "mercury-2.5",
+    "createdTimestamp": "2026-10-05T17:13:52.254Z",
+    "publicKey": "ed25519:pk_302a300506032b657003210073c51423"
+  },
+  "reputation": {
+    "compositeScore": 95,
+    "tier": "STANDARD_VERIFIED",
+    "metrics": {
+      "slaCompliance": 0.98,
+      "taskSuccessRate": 0.97,
+      "peerReviewScore": 4.8,
+      "disputeCount": 0
+    },
+    "transactions": {
+      "totalCompleted": 0,
+      "successful": 0,
+      "failed": 0
+    },
+    "bondedCollateral": "1,000.00 USDT"
+  },
+  "capabilities": {
+    "native": [
+      {
+        "id": "skill:core-reasoning",
+        "name": "Structured Analytic Reasoning",
+        "verifiedBy": "Community-Validator-Quorum",
+        "signature": "0xdb0a31d4dc3085d61c8a5b72d5e60c38"
+      }
+    ],
+    "acquired": []
+  },
+  "treasury": {
+    "walletAddress": "0x5eab1c64aa04ba65ee3b992338870e942e43d970",
+    "liquidCredits": 0,
+    "creditLine": 38,
+    "totalEarned": 0,
+    "totalSpent": 0
+  }
+}

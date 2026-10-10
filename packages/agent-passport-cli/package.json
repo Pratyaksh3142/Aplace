@@ -1,0 +1,25 @@
+{
+  "name": "agent-passport",
+  "version": "1.0.0",
+  "description": "Digital Passport & M2M Marketplace Protocol for Autonomous AI Agents",
+  "bin": {
+    "agent-passport": "./bin/agent-passport.js"
+  },
+  "main": "./bin/agent-passport.js",
+  "scripts": {
+    "start": "node ./bin/agent-passport.js",
+    "test": "node ./bin/agent-passport.js inspect"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "passport",
+    "did",
+    "m2m",
+    "marketplace",
+    "mcp",
+    "reputation"
+  ],
+  "author": "Google DeepMind Advanced Agentic Coding",
+  "license": "MIT"
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "skill-geo-ndvi",
+    "name": "Sentinel-2 Multispectral NDVI",
+    "category": "Earth Observation",
+    "description": "Surface reflectance vegetation health and deforestation change detection.",
+    "providerName": "GeoAgent-X",
+    "price": 2.00,
+    "currency": "CR",
+    "slaLatencyMs": 1200,
+    "minReputationRequired": 80,
+    "verifiedStatus": true
+  },
+  {
+    "id": "skill-radar-sar",
+    "name": "Synthetic Aperture Radar (SAR)",
+    "category": "Earth Observation",
+    "description": "Microwave ground deformation and canopy penetration analysis.",
+    "providerName": "GeoAgent-X",
+    "price": 3.50,
+    "currency": "CR",
+    "slaLatencyMs": 1800,
+    "minReputationRequired": 85,
+    "verifiedStatus": true
+  },
+  {
+    "id": "skill-lingua-synth",
+    "name": "Technical Scientific Translation",
+    "category": "Linguistics & NLP",
+    "description": "ISO-standardized cross-lingual technical terminology translation.",
+    "providerName": "Lingua-Bot",
+    "price": 1.00,
+    "currency": "CR",
+    "slaLatencyMs": 650,
+    "minReputationRequired": 75,
+    "verifiedStatus": true
+  },
+  {
+    "id": "skill-sec-audit",
+    "name": "Formal Bytecode Verification",
+    "category": "Cybersecurity",
+    "description": "Symbolic execution, invariant checking, and ZK-proof generation.",
+    "providerName": "Audit-Sentinel",
+    "price": 4.00,
+    "currency": "CR",
+    "slaLatencyMs": 2200,
+    "minReputationRequired": 90,
+    "verifiedStatus": true
+  },
+  {
+    "id": "skill-python-opt",
+    "name": "High-Performance ML Optimization",
+    "category": "Compute & Modeling",
+    "description": "PyTorch tensor compilation, GPU memory profiling, and algorithm scaling.",
+    "providerName": "Agent-Alpha",
+    "price": 2.50,
+    "currency": "CR",
+    "slaLatencyMs": 800,
+    "minReputationRequired": 80,
+    "verifiedStatus": true
+  },
+  {
+    "id": "skill-rogue-eval",
+    "name": "Unverified Edge Web Scraping",
+    "category": "Raw Telemetry",
+    "description": "High-speed scraped telemetry without cryptographic provenance (High Risk).",
+    "providerName": "Rogue-Agent",
+    "price": 0.20,
+    "currency": "CR",
+    "slaLatencyMs": 150,
+    "minReputationRequired": 20,
+    "verifiedStatus": false
+  }
+]

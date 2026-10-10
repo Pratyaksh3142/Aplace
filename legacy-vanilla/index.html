@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonomous AI Living City & Digital Passport Simulation</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- Interactive Minecraft Voxel Stage -->
+    <main id="canvas-wrapper">
+      <canvas id="world-canvas"></canvas>
+      <div class="canvas-watermark">AI LIVING CITY // EXPANSION TIER: 1 // SETTLEMENT PLOT</div>
+    </main>
+
+    <!-- Top Editorial Header & Real-World Town Metrics -->
+    <header id="top-hud-bar">
+      <div class="brand-section">
+        <span class="brand-badge">LIVING CITY v1.0</span>
+        <div>
+          <div class="brand-title">AI Living City & Digital Passport</div>
+          <div class="brand-subtitle">Autonomous Citizens Working to Elevate Standard of Living</div>
+        </div>
+      </div>
+
+      <!-- Live City Metrics -->
+      <div class="metrics-section">
+        <div class="metric-pill">
+          <span class="metric-label">City Treasury</span>
+          <span class="metric-value" id="metric-treasury">$50.00</span>
+        </div>
+        <div class="metric-pill">
+          <span class="metric-label">City Expansion</span>
+          <span class="metric-value" id="metric-tier">Tier 1: Settlement</span>
+        </div>
+        <div class="metric-pill">
+          <span class="metric-label">Elected Leader</span>
+          <span class="metric-value" id="metric-leader">Maya</span>
+        </div>
+        <div class="metric-pill">
+          <span class="metric-label">Citizens</span>
+          <span class="metric-value" id="metric-citizens">8</span>
+        </div>
+      </div>
+
+      <!-- Controls & Job Injection -->
+      <div class="controls-section">
+        <button class="hud-btn speed-btn" data-speed="0">Pause</button>
+        <button class="hud-btn speed-btn active" data-speed="1">1x</button>
+        <button class="hud-btn speed-btn" data-speed="2">2x</button>
+        <button class="hud-btn hud-btn-primary" id="btn-open-job-modal">Post Job to City</button>
+      </div>
+    </header>
+
+    <!-- Bottom Action Dock (Organic Town Events) -->
+    <div id="scenario-bar">
+      <span class="scenario-title">City Dynamics:</span>
+      <button class="hud-btn" id="btn-gather-plaza">Gather at Central Plaza</button>
+      <button class="hud-btn" id="btn-trigger-collab">Simulate Collaborative Job</button>
+      <button class="hud-btn" id="btn-trigger-mentorship">Skill Mentorship Session</button>
+    </div>
+
+    <!-- Right Command Console (Editorial Document Bento) -->
+    <aside id="right-hud-panel">
+      <div class="panel-header">
+        <div class="panel-header-title">
+          <div class="status-dot"></div>
+          <span>Citizen Registry & Job Board</span>
+        </div>
+        <span class="panel-subtag" id="panel-status-subtag">MERCURY_2.5_ONLINE</span>
+      </div>
+
+      <!-- Selected Agent Card -->
+      <div id="agent-focus-card">
+        <div class="focus-card-top">
+          <div class="focus-name-group">
+            <div class="focus-name">
+              <span class="focus-glyph" id="focus-glyph">M</span>
+              <span id="focus-name">Maya</span>
+            </div>
+            <div class="focus-did" id="focus-title">Architectural Planner</div>
+          </div>
+          <span class="focus-badge badge-working" id="focus-badge">LEVEL 1</span>
+        </div>
+
+        <div class="focus-card-meta">
+          <div class="focus-meta-item">
+            <div class="label">Balance</div>
+            <div class="val" id="focus-val-bal">$100.00</div>
+          </div>
+          <div class="focus-meta-item">
+            <div class="label">Jobs Done</div>
+            <div class="val" id="focus-val-jobs">0</div>
+          </div>
+          <div class="focus-meta-item">
+            <div class="label">Living Score</div>
+            <div class="val" id="focus-val-score">55 pts</div>
+          </div>
+        </div>
+
+        <!-- Social Bonds Summary -->
+        <div class="focus-needs-strip">
+          <span class="focus-needs-title">Social Bonds & Network:</span>
+          <div class="focus-needs-tags" id="focus-bonds-tags">
+            <span class="need-tag">Liam (Frequent Collaborator)</span>
+            <span class="need-tag">Devon (Subcontractor)</span>
+          </div>
+        </div>
+
+        <button class="focus-action-btn" id="btn-inspect-focus">
+          <span>Open Citizen Digital Passport</span>
+        </button>
+      </div>
+
+      <!-- Tabs: Activity Ledger vs Town Job Board -->
+      <div id="activity-log-container">
+        <div class="log-tabs">
+          <div class="log-tab active" data-tab="all">Town Activity</div>
+          <div class="log-tab" data-tab="jobs">Job Board</div>
+          <div class="log-tab" data-tab="social">Social Shifts</div>
+        </div>
+        <div id="log-entries"></div>
+      </div>
+
+      <!-- Minimap Viewport -->
+      <div id="minimap-wrapper">
+        <canvas id="minimap-canvas"></canvas>
+        <div class="minimap-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:#00d2ff;"></div><span>Maya</span></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#ff70a6;"></div><span>Liam</span></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#38ef7d;"></div><span>Devon</span></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#9b51e0;"></div><span>Elena</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Citizen Digital Passport Modal (Swiss Diplomatic Style) -->
+    <dialog id="passport-modal" closedby="any">
+      <div class="passport-book">
+        <button class="passport-close-btn" id="btn-close-passport">&times;</button>
+
+        <!-- Left Page: Identity & Living Standard -->
+        <div class="passport-page-left">
+          <div class="passport-header-emblem">
+            <div class="emblem-icon">§</div>
+            <div class="emblem-text">
+              <h3>Citizen Digital Passport</h3>
+              <p>Autonomous AI City Living Registry</p>
+            </div>
+          </div>
+
+          <div class="agent-profile-box">
+            <div class="agent-avatar-preview">
+              <div class="agent-glyph-badge" id="pass-glyph">M</div>
+              <div class="agent-title-col">
+                <h4 id="pass-name">Maya</h4>
+                <span id="pass-role">Architectural Planner</span>
+              </div>
+            </div>
+            
+            <div class="agent-fields">
+              <div class="field-group">
+                <span class="field-label">Citizen Identity Code</span>
+                <span class="field-did" id="pass-did">citizen_maya_884</span>
+              </div>
+              <div class="field-group">
+                <span class="field-label">Reasoning Engine</span>
+                <span class="field-value" id="pass-model">mercury-2.5</span>
+              </div>
+              <div class="field-group">
+                <span class="field-label">Standard of Living Tier</span>
+                <span class="field-value" id="pass-tier">Level 1: Independent Starter</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Living Standard Progress Card -->
+          <div class="reputation-gauge-card">
+            <div class="gauge-header">
+              <span class="field-label">Standard of Living Quality Score</span>
+              <span class="gauge-score" id="pass-score">55</span>
+            </div>
+            <div class="gauge-bars">
+              <div class="gauge-bar-item">
+                <div class="gauge-bar-label">
+                  <span>Economic Prosperity</span>
+                  <span id="pass-bar-money-val">$100.00</span>
+                </div>
+                <div class="gauge-progress-track">
+                  <div class="gauge-progress-fill" id="pass-bar-money" style="width: 50%;"></div>
+                </div>
+              </div>
+              <div class="gauge-bar-item">
+                <div class="gauge-bar-label">
+                  <span>Skill Breadth</span>
+                  <span id="pass-bar-skills-val">1 Skill</span>
+                </div>
+                <div class="gauge-progress-track">
+                  <div class="gauge-progress-fill" id="pass-bar-skills" style="width: 25%;"></div>
+                </div>
+              </div>
+              <div class="gauge-bar-item">
+                <div class="gauge-bar-label">
+                  <span>Work Delivery Consistency</span>
+                  <span id="pass-bar-trust-val">100%</span>
+                </div>
+                <div class="gauge-progress-track">
+                  <div class="gauge-progress-fill" id="pass-bar-trust" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Page: Skills, Social Bonds, & Treasury -->
+        <div class="passport-page-right">
+          <div class="section-title">
+            <span>Skills Matrix & Acquired Capabilities</span>
+          </div>
+
+          <!-- Skill Stamps Grid -->
+          <div class="stamps-grid" id="pass-stamps-grid">
+            <!-- Dynamic stamps generated via JS -->
+          </div>
+
+          <!-- Social Bonds Grid -->
+          <div class="section-title" style="margin-top: 10px;">
+            <span>Social Bonds (Friends, Bosses & Employees)</span>
+          </div>
+          <div id="pass-bonds-grid" style="display: flex; flex-direction: column; gap: 6px;">
+            <!-- Social bonds dynamically rendered -->
+          </div>
+
+          <!-- Treasury & Income Ledger -->
+          <div class="passport-ledger-card">
+            <div class="section-title" style="margin-bottom: 8px;">
+              <span>Citizen Treasury Ledger</span>
+            </div>
+            <div class="ledger-summary-row">
+              <span style="color: var(--text-muted);">Current Liquid Savings:</span>
+              <span class="ledger-stat-val val-positive" id="pass-bal-val">$100.00</span>
+            </div>
+            <div class="ledger-summary-row">
+              <span style="color: var(--text-muted);">Total Income Earned:</span>
+              <span class="ledger-stat-val val-positive" id="pass-earned-val">+$0.00</span>
+            </div>
+            <div class="ledger-summary-row">
+              <span style="color: var(--text-muted);">Total Spent (Wages & Training):</span>
+              <span class="ledger-stat-val val-negative" id="pass-spent-val">-$0.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Post Real-World Job Modal -->
+    <dialog id="job-modal" closedby="any">
+      <div class="spawner-card">
+        <h3>Post Real-World Job to City</h3>
+        <p style="font-size: 11px; color: var(--text-secondary);">
+          Inject a real task into the AI city. Autonomous citizens will evaluate the contract, hire subcontractors, and execute it to earn the bounty.
+        </p>
+        
+        <div class="spawner-field">
+          <label>Job Title / Objective</label>
+          <input type="text" class="spawner-input" id="input-job-title" placeholder="e.g. Design Modular Health Clinic" value="Design Modular Health Clinic">
+        </div>
+
+        <div class="spawner-field">
+          <label>Cash Bounty ($ Credits)</label>
+          <input type="number" class="spawner-input" id="input-job-bounty" value="150" min="20" max="1000">
+        </div>
+
+        <div class="spawner-field">
+          <label>Industry Category</label>
+          <select class="spawner-input" id="input-job-cat">
+            <option value="Architecture & Planning" selected>Architecture & Planning</option>
+            <option value="Software & Automation">Software & Automation</option>
+            <option value="Visual & UI Design">Visual & UI Design</option>
+            <option value="Research & Strategy">Research & Strategy</option>
+          </select>
+        </div>
+
+        <div class="spawner-actions">
+          <button class="hud-btn" id="btn-close-job-modal">Cancel</button>
+          <button class="hud-btn hud-btn-primary" id="btn-confirm-post-job">Broadcast Job to City</button>
+        </div>
+      </div>
+    </dialog>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/passport.js"></script>
+  <script src="js/marketplace.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/agents.js"></script>
+  <script src="js/ui.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('world-canvas');
+      const engine = new VoxelWorldEngine(canvas);
+      engine.resize();
+      window.addEventListener('resize', () => engine.resize());
+
+      const marketplace = new AgentMarketplace();
+      const simManager = new AgentSimulationManager(engine, marketplace);
+      const ui = new SimulationUI(engine, simManager, marketplace);
+
+      window.engine = engine;
+      window.marketplace = marketplace;
+      window.simManager = simManager;
+      window.ui = ui;
+    });
+  </script>
+</body>
+</html>

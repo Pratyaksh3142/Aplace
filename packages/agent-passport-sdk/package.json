@@ -1,0 +1,17 @@
+{
+  "name": "@agent-passport/sdk",
+  "version": "1.0.0",
+  "description": "TypeScript / JavaScript runtime SDK for AI Agent Passports, Skill Discovery, and Escrow",
+  "main": "index.js",
+  "keywords": [
+    "ai",
+    "agent-economy",
+    "passport",
+    "mcp",
+    "reputation",
+    "langchain",
+    "autogen"
+  ],
+  "author": "Google DeepMind Advanced Agentic Coding",
+  "license": "MIT"
+}
